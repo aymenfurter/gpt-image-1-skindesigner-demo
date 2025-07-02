@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPT-Image-1 Skin Designer - Create Custom Device Skins</title>
+    <link rel="stylesheet" href="/ui/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <span class="logo-text">GPT-Image-1 <span class="gradient-text">Skin Designer</span></span>
+            </div>
+            <nav class="progress-nav">
+                <div class="progress-step active" data-step="1">
+                    <span class="step-number">1</span>
+                    <span class="step-label">Device</span>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step" data-step="2">
+                    <span class="step-number">2</span>
+                    <span class="step-label">Design</span>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step" data-step="3">
+                    <span class="step-number">3</span>
+                    <span class="step-label">Preview</span>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Step 1: Device Selection -->
+            <section class="step-section active" id="step-1">
+                <div class="step-header">
+                    <h1 class="step-title">Choose Your Device</h1>
+                    <p class="step-subtitle">Select from popular devices or upload your own</p>
+                </div>
+                
+                <div class="device-grid">
+                    <!-- Device cards will be loaded dynamically here -->
+                    <div class="device-card upload-card">
+                        <div class="device-preview">
+                            <div class="upload-icon">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 4L12 16M12 4L8 8M12 4L16 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    <path d="M4 17V19C4 20.1046 4.89543 21 6 21H18C19.1046 21 20 20.1046 20 19V17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="device-name">Upload Device</h3>
+                        <label for="device-upload" class="btn btn-secondary btn-upload">Choose File</label>
+                        <input type="file" class="file-input" accept="image/*" id="device-upload">
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="nextStep()" disabled>
+                        <span>Continue</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Step 2: Design Selection -->
+            <section class="step-section" id="step-2">
+                <div class="step-header">
+                    <h1 class="step-title">Create Your Design</h1>
+                    <p class="step-subtitle">Upload an image or choose from our gallery</p>
+                </div>
+                
+                <div class="design-container">
+                    <div class="design-left-column">
+                        <div class="upload-section">
+                            <div class="upload-area" id="design-upload-area">
+                                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" class="upload-icon-large">
+                                    <path d="M4 16L4 18C4 19.1046 4.89543 20 6 20L18 20C19.1046 20 20 19.1046 20 18L20 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                    <path d="M12 4L12 14M12 4L8 8M12 4L16 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                                <p class="upload-text">Drop your image here or</p>
+                                <label for="design-upload" class="btn btn-secondary btn-upload">Browse Files</label>
+                                <input type="file" class="file-input" accept="image/*" id="design-upload">
+                            </div>
+                        </div>
+                        
+                        <div class="divider">
+                            <span>OR</span>
+                        </div>
+                        
+
+                        <div class="gallery-section">
+                            <h3 class="section-title">Choose from Gallery</h3>
+                            <div class="gallery-grid">
+                                <div class="gallery-item" data-image="abstract-1">
+                                    <div class="gallery-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                                </div>
+                                <div class="gallery-item" data-image="abstract-2">
+                                    <div class="gallery-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                                </div>
+                                <div class="gallery-item" data-image="abstract-3">
+                                    <div class="gallery-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+                                </div>
+                                <div class="gallery-item" data-image="abstract-4">
+                                    <div class="gallery-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="design-right-column">
+                        <div class="text-guide-section">
+                            <div class="section-title-toggle">
+                                <h3 class="section-title">Add Text Guide (Optional)</h3>
+                                <button class="toggle-btn">
+                                    <svg class="toggle-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="collapsible-content">
+                                <textarea class="text-input" placeholder="Describe your design vision... (e.g., 'Cosmic galaxy with purple nebula')" rows="3"></textarea>
+                            </div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn btn-secondary" onclick="previousStep()">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                                <span>Back</span>
+                            </button>
+                            <button class="btn btn-primary" onclick="nextStep()" disabled>
+                                <span>Generate Preview</span>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 3: Preview -->
+            <section class="step-section" id="step-3">
+                <div class="step-header">
+                    <h1 class="step-title">Behold Your Creation</h1>
+                    <p class="step-subtitle">Your custom skin is beeing finalized!</p>
+                </div>
+                
+                <div class="preview-container">
+                    <div class="device-mockup">
+                        <div class="device-frame">
+                            <div class="skin-preview" id="skin-preview"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="preview-actions">
+                        <button class="action-btn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 4V16M12 16L8 12M12 16L16 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M4 20H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span>Download</span>
+                        </button>
+                        
+                        <button class="action-btn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M8 7V3M16 7V3M7 11H17M5 20H19C20.1046 20 21 19.1046 21 18V7C21 5.89543 20.1046 5 19 5H5C3.89543 5 3 5.89543 3 7V18C3 19.1046 3.89543 20 5 20Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span>Save for Later</span>
+                        </button>
+                        
+                        <button class="action-btn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M8.68439 13.3161C8.88616 13.518 9.0116 13.7839 9.03938 14.0696C9.06717 14.3553 8.99543 14.6438 8.83601 14.8844C8.36926 15.6178 7.71157 16.2038 6.93336 16.5802C6.15515 16.9565 5.28445 17.1094 4.41534 17.0215C3.54623 16.9336 2.71156 16.6079 2.00098 16.0774C1.29041 15.5469 0.729731 14.8301 0.376808 14.0025C0.0238845 13.175 -0.108245 12.2661 0.0940711 11.3707C0.296387 10.4754 0.826363 9.62858 1.63635 8.93727C2.44634 8.24596 3.50981 7.74439 4.71563 7.50382C5.92144 7.26324 7.22534 7.29941 8.5 7.608" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M12 7L12 13L16 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span>Regenerate</span>
+                        </button>
+
+                        <button class="action-btn" onclick="startOver()">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 4V20M4 12H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span>Create Another</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <script src="/ui/script.js"></script>
+</body>
+</html>

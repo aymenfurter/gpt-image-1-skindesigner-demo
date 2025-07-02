@@ -1,6 +1,6 @@
 # GPT-Image-1 Skin Designer 🎨
 
-A modern web application that uses Azure OpenAI's GPT-Image-1 model to create custom device skins. Users can select from popular devices or upload their own, then apply custom designs using AI-powered image generation and editing.
+A sample app that uses Azure OpenAI's GPT-Image-1 model to create custom device skins. Users can select from popular devices or upload their own, then apply custom designs using AI-powered image generation and editing.
 
 ## ✨ Features
 

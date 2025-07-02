@@ -31,6 +31,9 @@ The application automatically generates precise masks to identify where skins ca
 ![Generated Mask](assets/mask.png)
 *AI-generated mask showing skin application areas (white regions)*
 
+### Final Image
+![Generated Mask](finaldesign.png)
+
 ## 🛠️ Technology Stack
 
 - **Frontend**: JavaScript (Vanilla)
